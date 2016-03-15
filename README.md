@@ -6,6 +6,10 @@ Generate RSS/Atom feed from changes in or in a specific region of a web page.
 Installation
 -------------
 
+There are two dependencies for the project:
+* django v1.9+
+* node.js v4.4.0+
+
 Run the following steps to install the server:
 
 ```
