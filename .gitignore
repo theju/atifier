@@ -1,0 +1,9 @@
+# Server
+*~
+*.pyc
+local.py
+db.sqlite3
+
+# Scraper
+debug.js
+node_modules/
