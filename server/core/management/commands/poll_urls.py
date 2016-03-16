@@ -13,7 +13,7 @@ class Command(BaseCommand):
     can_import_settings = True
 
     def handle(self, *args, **options):
-        pool = multiprocessing.Pool(10)
+        pool = multiprocessing.Pool(multiprocessing.cpu_count() + 2)
         curr_min = datetime.datetime.now().minute
         for page in WebPage.objects.all():
             if curr_min % page.interval == 0 or settings.DEBUG:
