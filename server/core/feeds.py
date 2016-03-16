@@ -33,7 +33,7 @@ class LatestEntriesFeed(Feed):
         return self.page.feed_name
 
     def item_link(self, item):
-        return self.link()
+        return self.page.url
 
     def item_description(self, item):
         return item.output
