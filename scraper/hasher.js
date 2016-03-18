@@ -6,7 +6,7 @@ var website = process.argv[2];
 var selector = process.argv[3];
 
 
-child_proc.exec("phantomjs fetcher.js " + website + " " + selector, function(error, stdout, stderr) {
+child_proc.exec("phantomjs fetcher.js " + website + " \"" + selector + "\"", function(error, stdout, stderr) {
     if (error) {
 	return null;
     }
