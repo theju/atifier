@@ -32,7 +32,7 @@ def scrape_url(page):
         time.sleep(1)
 
     outfd.seek(0)
-    output = outfd.read().strip()
+    output = outfd.read().strip().decode("utf-8")
     outfd.close()
     if len(output) == 0:
         return None
