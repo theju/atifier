@@ -14,6 +14,7 @@ class WebPage(models.Model):
     selector = models.TextField()
     interval = models.PositiveIntegerField(default=5)
     max_results = models.PositiveIntegerField(default=100)
+    is_enabled = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
