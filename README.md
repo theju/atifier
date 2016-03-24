@@ -3,6 +3,19 @@ Atifier
 
 Generate RSS/Atom feed from changes in or in a specific region of a web page.
 
+The project has two components: a server and scraper.
+
+The server is powered by the django admin:
+
+  - stores a list of URLs along with the interval, DOM selector to be scraped
+  - the last computed hash (SHA1) of the DOM selector (region of interest)
+  - generates RSS/Atom feeds based on the content-type
+
+The scraper uses PhantomJS:
+
+  - Fetches the page and evaluates against a DOM selector (passed to document.querySelector)
+  - Get the innerHTML of the DOM selector and returns it's SHA1 hash to the server
+
 Installation
 -------------
 
