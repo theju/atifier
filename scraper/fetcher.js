@@ -11,8 +11,10 @@ page.settings.loadImages = debug.LOAD_IMAGES;
 page.viewportSize = debug.VIEWPORT_SIZE;
 
 page.onLoadFinished = function(status) {
-    var output = page.evaluateJavaScript("function() { return document.querySelector('" + selector + "'); }");
-    console.log(output.innerHTML);
+    if (status === "success") {
+	var output = page.evaluateJavaScript("function() { return document.querySelector('" + selector + "'); }");
+	console.log(output.innerHTML);
+    }
     phantom.exit();
 }
 
