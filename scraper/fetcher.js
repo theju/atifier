@@ -13,7 +13,9 @@ page.viewportSize = debug.VIEWPORT_SIZE;
 page.onLoadFinished = function(status) {
     if (status === "success") {
 	var output = page.evaluateJavaScript("function() { return document.querySelector('" + selector + "'); }");
-	console.log(output.innerHTML);
+	if (typeof output.innerHTML !== 'undefined') {
+	    console.log(output.innerHTML.trim());
+	}
     }
     phantom.exit();
 }
