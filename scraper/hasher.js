@@ -12,6 +12,8 @@ child_proc.exec("phantomjs fetcher.js " + website + " \"" + selector + "\"", fun
     }
 
     var output = stdout.replace(/\s+/gm, ' ').replace(/\n|\r\n/gm, '');
-    var hash = crypto.createHash('sha1').update(output, 'utf8').digest('hex');
-    console.log(hash + "|||" + output);
+    if (output.trim().length > 0) {
+	var hash = crypto.createHash('sha1').update(output, 'utf8').digest('hex');
+	console.log(hash + "|||" + output);
+    }
 });
