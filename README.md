@@ -66,4 +66,4 @@ Add a cron entry in `/etc/cron.d/crontab`:
 Login the django admin at `http://localhost:8000/admin/` and create the
 pages you want to track along with the DOM selectors (sent to
 `document.querySelector`) and an interval in minutes the page has to be
-scraped (valid value between 0 and 59).
+scraped.

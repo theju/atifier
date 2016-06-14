@@ -14,9 +14,12 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         pool = multiprocessing.Pool(multiprocessing.cpu_count() + 2)
-        curr_min = datetime.datetime.now().minute
+        today = int(datetime.date.today().strftime("%s"))
+        now = datetime.datetime.now()
+        curr_time = float(int(now.strftime("%s")) - now.second)
+        mins_passed = curr_time - today
         for page in WebPage.objects.all():
-            if curr_min % page.interval == 0 or settings.DEBUG:
+            if mins_passed % page.interval == 0 or settings.DEBUG:
                 pool.apply_async(scrape_url, (page, ))
         pool.close()
         pool.join()
