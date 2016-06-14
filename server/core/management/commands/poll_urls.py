@@ -13,7 +13,7 @@ class Command(BaseCommand):
     can_import_settings = True
 
     def handle(self, *args, **options):
-        pool = multiprocessing.Pool(multiprocessing.cpu_count() + 2)
+        pool = multiprocessing.Pool(multiprocessing.cpu_count())
         today = int(datetime.date.today().strftime("%s"))
         now = datetime.datetime.now()
         curr_time = float(int(now.strftime("%s")) - now.second)
