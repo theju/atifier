@@ -19,7 +19,7 @@ class Command(BaseCommand):
         curr_time = int(now.strftime("%s")) - now.second
         mins_passed = int((curr_time - today) / 60.0)
         intervals = WebPage.objects.filter(interval__lte=mins_passed)\
-                                   .values('interval').\
+                                   .values_list('interval', flat=True).\
                                    order_by('interval').distinct()
         for interval in intervals:
             if mins_passed % interval == 0 or settings.DEBUG:
