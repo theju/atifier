@@ -18,8 +18,12 @@ class Command(BaseCommand):
         now = datetime.datetime.now()
         curr_time = int(now.strftime("%s")) - now.second
         mins_passed = int((curr_time - today) / 60.0)
-        for page in WebPage.objects.all():
-            if mins_passed % page.interval == 0 or settings.DEBUG:
-                pool.apply_async(scrape_url, (page, ))
+        intervals = WebPage.objects.filter(interval__lte=mins_passed)\
+                                   .values('interval').\
+                                   order_by('interval').distinct()
+        for interval in intervals:
+            if mins_passed % interval == 0 or settings.DEBUG:
+                for page in WebPage.objects.filter(interval=interval):
+                    pool.apply_async(scrape_url, (page, ))
         pool.close()
         pool.join()
