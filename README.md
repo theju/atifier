@@ -11,7 +11,7 @@ The server is powered by the django admin:
   - the last computed hash (SHA1) of the DOM selector (region of interest)
   - generates RSS/Atom feeds based on the content-type
 
-The scraper uses PhantomJS:
+The scraper uses Google Chrome in headless mode (through the puppeteer package):
 
   - Fetches the page and evaluates against a DOM selector (passed to document.querySelector)
   - Get the innerHTML of the DOM selector and returns it's SHA1 hash to the server
@@ -21,7 +21,7 @@ Installation
 
 There are two dependencies for the project:
 * django v1.9+
-* node.js v4.4.0+
+* node.js v8.4.0+
 
 Run the following steps to install the server:
 

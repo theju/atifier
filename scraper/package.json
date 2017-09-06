@@ -4,28 +4,28 @@
     "version": "0.0.1",
     "author": "Thejaswi Puthraya",
     "contributors": [
-	{
-	    "name": "Thejaswi Puthraya",
-	    "email": "thejaswi.puthraya@gmail.com"
-	}
+	      {
+	          "name": "Thejaswi Puthraya",
+	          "email": "thejaswi.puthraya@gmail.com"
+	      }
     ],
     "repository": {
-	"type": "git",
-	"url": "https://github.com/theju/atifier.git"
+	      "type": "git",
+	      "url": "https://github.com/theju/atifier.git"
     },
     "bugs": {
-	"url": "https://github.com/theju/atifier/issues"
+	      "url": "https://github.com/theju/atifier/issues"
     },
     "dependencies": {
-	"phantomjs-prebuilt": "^2.1.5"
+	      "puppeteer": "^0.10.2"
     },
     "keywords": [
-	"scrape",
-	"hash",
-	"save"
+	      "scrape",
+	      "hash",
+	      "save"
     ],
     "engines": {
-	"node": ">=4.1.0"
+	      "node": ">=8.4.0"
     },
     "license": "MIT"
 }
