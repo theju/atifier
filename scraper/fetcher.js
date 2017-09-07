@@ -4,9 +4,15 @@ const process = require('process');
 const puppeteer = require('puppeteer');
 const debug = require('./debug');
 
-puppeteer.launch({
-    args: [debug.LOAD_IMAGES == true ? '--blink-settings=imagesEnabled=false': '']
-}).then(async browser => {
+let opts = {
+    args: []
+};
+
+if (debug.LOAD_IMAGES == true) {
+    opts.args.push('--blink-settings=imagesEnabled=false');
+}
+
+puppeteer.launch(opts).then(async browser => {
     let url = process.argv[2];
     let selector = process.argv[3];
 
